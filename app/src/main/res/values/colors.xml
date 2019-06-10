@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="colorPrimaryDark">#3700B3</color>
+    <!--<color name="colorPrimary">#6200EE</color>-->
+    <color name="colorPrimary">#3700B3</color>
+    <!--<color name="colorPrimary">#3880ff</color>-->
+    <color name="colorAccent">#D81B60</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black_overlay">#66000000</color>
+    <color name="white_greyish">#EEEEEE</color>
+    <color name="button_selectorcolor">#9E9E9E</color>
+    <color name="occupied">#B00020</color>
+    <color name="vacant">#098209</color>
+    <color name="cleaing">#cf6908</color>
+    <color name="content">#0a2555</color>
+
+
+
+
+
+</resources>

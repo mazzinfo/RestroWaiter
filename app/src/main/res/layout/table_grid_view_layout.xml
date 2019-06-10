@@ -1,0 +1,137 @@
+<android.support.v7.widget.CardView
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    card_view:cardUseCompatPadding="true"
+    card_view:cardCornerRadius="8dp"
+    android:layout_marginBottom="6dp">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="4">
+        <TableRow  android:id="@+id/row_header"
+            android:background="@color/vacant"
+            android:padding="2dp">
+            <ImageView
+                android:id="@+id/img_person_count"
+                android:layout_width="0dp"
+                android:layout_weight=".5"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:contentDescription="@string/app_name"
+                app:srcCompat="@drawable/ic_person" />
+            <TextView
+                android:id="@+id/tv_person_count"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_alignRight="@+id/img_person_count"
+                android:gravity="start"
+                android:layout_gravity="center_vertical"
+                android:text="23"
+
+                android:textColor="@color/white"
+                android:textSize="14sp"
+
+                />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                />
+
+
+            <TextView
+                android:id="@+id/tv_time_count"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+              android:gravity="end"
+                android:layout_gravity="center_vertical"
+                android:text="00:00"
+
+
+                android:textColor="@color/white"
+                android:textSize="14sp"
+
+                />
+
+            <ImageView
+                android:id="@+id/img_time_count"
+                android:layout_width="0dp"
+                android:layout_weight=".5"
+                android:layout_height="wrap_content"
+
+                android:padding="0dp"
+                android:layout_gravity="left"
+                android:contentDescription="@string/app_name"
+                android:layout_alignRight="@+id/tv_time_count"
+                app:srcCompat="@drawable/ic_timer" />
+
+        </TableRow>
+
+        <TableRow  android:id="@+id/row_content"
+            android:padding="5dp"
+            android:background="@color/content">
+
+            <TextView
+                android:id="@+id/tv_table_name"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:layout_height="wrap_content"
+             android:gravity="center"
+
+                android:text="@string/app_name"
+
+                android:layout_gravity="center_vertical"
+                android:textColor="@color/white"
+                android:textSize="16dp"
+
+                />
+            <TextView
+                android:id="@+id/tv_salesperson_name"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_gravity="center_vertical"
+                android:text="@string/app_name"
+                android:padding="5dp"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+
+                />
+
+
+
+
+        </TableRow>
+        <TableRow  android:id="@+id/row_footer"
+            android:padding="2dp"
+            android:background="@color/vacant">
+
+            <TextView
+                android:id="@+id/tv_amount"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_gravity="center_vertical"
+                android:text="@string/app_name"
+
+                android:textColor="@color/white"
+                android:textSize="14sp"
+
+                />
+
+
+
+        </TableRow>
+    </TableLayout>
+
+</android.support.v7.widget.CardView>
