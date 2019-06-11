@@ -38,10 +38,10 @@ public class TableGridAdapter extends BaseAdapter {
         }
     }
 
-    @Override
-    public Object getItem(int p) {
-        return null;
+    public TableModal getItem(int position) {
+        return list.get(position);
     }
+
 
     @Override
     public long getItemId(int p) {

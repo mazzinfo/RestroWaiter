@@ -1,6 +1,7 @@
 package org.mazz.restrowaiter;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -83,11 +84,25 @@ public class FullscreenActivity extends AppCompatActivity {
         }
     };
 
+    Handler handler;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_fullscreen);
+
+
+
+        handler=new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Intent intent=new Intent(FullscreenActivity.this,LoginActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        },3000);
 
         mVisible = true;
         mControlsView = findViewById(R.id.fullscreen_content_controls);

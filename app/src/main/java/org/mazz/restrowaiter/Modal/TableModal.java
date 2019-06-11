@@ -14,6 +14,27 @@ public class TableModal {
     private int posCode;
     @SerializedName("tableStatus")
     private int tableStatus;
+
+    @Override
+    public String toString() {
+        return "TableModal{" +
+                "unqNo=" + unqNo +
+                ", tableNo='" + tableNo + '\'' +
+                ", posCode=" + posCode +
+                ", tableStatus=" + tableStatus +
+                ", pax=" + pax +
+                ", sitTime='" + sitTime + '\'' +
+                ", waiterNo=" + waiterNo +
+                ", waiterName='" + waiterName + '\'' +
+                ", Discount=" + Discount +
+                ", sitActive='" + sitActive + '\'' +
+                ", sitHour='" + sitHour + '\'' +
+                ", sitMin='" + sitMin + '\'' +
+                ", sit='" + sit + '\'' +
+                ", totalAmount=" + totalAmount +
+                '}';
+    }
+
     @SerializedName("pax")
     private int pax;
     @SerializedName("sitTime")

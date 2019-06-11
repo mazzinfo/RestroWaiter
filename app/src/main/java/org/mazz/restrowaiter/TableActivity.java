@@ -1,5 +1,7 @@
 package org.mazz.restrowaiter;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.os.Bundle;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.view.MenuItemCompat;
@@ -7,9 +9,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.AdapterView;
@@ -39,31 +43,10 @@ public class TableActivity extends AppCompatActivity {
 
     GridView gridView;
     private Spinner pos_spinner;
+    ViewGroup viewGroup;
 
 
-    public static String[] gridViewStrings = {
-            "Android",
-            "Java",
-            "GridView",
-            "ListView",
-            "Adapter",
-            "Custom GridView",
-            "Material",
-            "XML",
-            "Code",
 
-    };
-    public static int[] gridViewImages = {
-            R.drawable.ic_user_name,
-            R.drawable.ic_timer,
-            R.drawable.ic_user_name,
-            R.drawable.ic_user_name,
-            R.drawable.ic_timer,
-            R.drawable.ic_timer,
-            R.drawable.ic_timer,
-            R.drawable.ic_timer,
-            R.drawable.ic_timer
-    };
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -100,18 +83,23 @@ public class TableActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
+         viewGroup = findViewById(android.R.id.content);
+
+        gridView = (GridView) findViewById(R.id.table_grid);
+
+
 //        BottomNavigationView navView = findViewById(R.id.nav_view);
 //        mTextMessage = findViewById(R.id.message);
 //        navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
-        gridView = (GridView) findViewById(R.id.table_grid);
+
 
       //  RestApiData.setTableData(this,gridView);
 
        RestApiData.setPosData(this,pos_spinner);
 
         TableEvent.posSpinnerItemClick(this,pos_spinner,gridView);
-
+        TableEvent.tableItemClick(this,gridView,viewGroup);
 
 //        gridView.setAdapter(new TableGridAdapter(this, gridViewStrings, gridViewImages));
        // addItemsToSpinner();
@@ -119,69 +107,6 @@ public class TableActivity extends AppCompatActivity {
 
 
 
-    // add items into spinner dynamically
-    public void addItemsToSpinner() {
-
-        ArrayList<PosModal> list = new ArrayList<PosModal>();
-        PosModal ad=new PosModal();
-        ad.setPosName("All");
-
-//        PosModal ad1=new PosModal();
-//        ad1.setPosName("Bar");
-//        PosModal ad2=new PosModal();
-//        ad2.setPosName("AC");
-//        list.add(ad);
-//        list.add(ad1);
-//        list.add(ad2);
-////        list.add("Top News");
-//        list.add("Politics");
-//        list.add("Business");
-//        list.add("Sports");
-//        list.add("Movies");
-
-        // Custom ArrayAdapter with spinner item layout to set popup background
-
-        PosSpinnerAdapter spinAdapter = new PosSpinnerAdapter(
-                getApplicationContext(), list);
-
-
-
-        // Default ArrayAdapter with default spinner item layout, getting some
-        // view rendering problem in lollypop device, need to test in other
-        // devices
-
-        /*
-         * ArrayAdapter<String> spinAdapter = new ArrayAdapter<String>(this,
-         * android.R.layout.simple_spinner_item, list);
-         * spinAdapter.setDropDownViewResource
-         * (android.R.layout.simple_spinner_dropdown_item);
-         */
-
-      //  pos_spinner.setAdapter(spinAdapter);
-
-        pos_spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-
-            @Override
-            public void onItemSelected(AdapterView<?> adapter, View v,
-                                       int position, long id) {
-                // On selecting a spinner item
-                String item = adapter.getItemAtPosition(position).toString();
-
-
-
-                // Showing selected spinner item
-                Toast.makeText(getApplicationContext(), "Selected  : " + item,
-                        Toast.LENGTH_LONG).show();
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> arg0) {
-                // TODO Auto-generated method stub
-
-            }
-        });
-
-    }
 
 
 //    @Override
