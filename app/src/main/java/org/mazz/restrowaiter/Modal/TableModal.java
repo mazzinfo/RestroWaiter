@@ -2,9 +2,10 @@ package org.mazz.restrowaiter.Modal;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
-public class TableModal {
+public class TableModal implements Serializable {
 
     @SerializedName("unqNo")
     private int unqNo;

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ItemSearchActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/item_search_toolbar"
+        android:layout_width="0dp"
+        android:layout_height="?attr/actionBarSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/colorPrimaryDark"
+
+        app:navigationIcon="@drawable/ic_navigation" >
+        <Button
+            android:id="@+id/btn_search_add_item"
+            android:drawableLeft="@drawable/ic_add_circle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add Item"
+            android:textColor="@color/white"
+            android:paddingRight="9dp"
+            android:textStyle="bold"
+            android:background="@color/colorPrimaryDark"
+            android:layout_gravity="right"/>
+    </android.support.v7.widget.Toolbar>
+    <LinearLayout
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+
+        >
+
+
+
+    <LinearLayout
+        android:id="@+id/item_search_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:weightSum="3"
+
+        android:orientation="horizontal">
+
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2.5"
+            android:drawableLeft="@drawable/ic_search"
+            android:drawableTint="@color/occupied"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:background="@color/white_greyish"
+            android:hint="@string/search_item"
+            android:textColorHint="@color/occupied"
+            android:textStyle="bold"
+            android:textColor="@color/occupied"
+            android:textSize="17dp"
+            android:focusable="true"
+            android:focusableInTouchMode="true">
+        <requestFocus />
+        </EditText>
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".5"
+            android:text="Search"
+            android:textColor="@color/white"
+            android:background="@color/colorPrimaryDark"
+            />
+    </LinearLayout>
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>

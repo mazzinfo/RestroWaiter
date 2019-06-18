@@ -1,5 +1,6 @@
 package org.mazz.restrowaiter.Service;
 
+import org.mazz.restrowaiter.Modal.KotDetailsModal;
 import org.mazz.restrowaiter.Modal.PosModal;
 import org.mazz.restrowaiter.Modal.TableModal;
 import org.mazz.restrowaiter.Modal.WaiterModal;
@@ -27,4 +28,8 @@ public interface RestApiService {
 
     @PUT("api/updateTableStatus/{tableId}")
     public Call<ResponseBody> UpdateTableStatus(@Path("tableId") int tableId,@Body TableModal tableModal);
+
+
+    @GET("api/kotDetailListByTable/{unqNo}")
+    public Call<List<KotDetailsModal>> getKotDetailsByTable(@Path("unqNo") int unqNo);
 }

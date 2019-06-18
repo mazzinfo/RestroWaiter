@@ -15,19 +15,138 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:background="@color/colorPrimaryDark"
-        app:navigationContentDescription="@string/app_name"
+
         app:navigationIcon="@drawable/ic_navigation" >
 
 
         <TextView
-            android:id="@+id/paxs"
+            android:id="@+id/tv_pax_data"
             android:drawableLeft="@drawable/ic_person"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/app_name"
+            android:text="23"
             android:textColor="@color/white"
+            android:paddingRight="5dp"
+            android:textStyle="bold"
             android:layout_gravity="right"/>
     </android.support.v7.widget.Toolbar>
+
+    <LinearLayout
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+
+       >
+
+
+
+<LinearLayout
+    android:id="@+id/kot_content"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="5dp"
+    android:background="@color/colorPrimaryDark"
+    android:orientation="horizontal">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/ic_search"
+        android:drawableTint="@color/occupied"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:background="@drawable/close_button_shape_white"
+        android:text="Add Item"
+        android:textStyle="bold"
+        android:textColor="@color/occupied"
+        android:textSize="17dp"/>
+</LinearLayout>
+
+        <ListView
+            android:id="@+id/kot_list"
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:layout_marginBottom="10dp"
+            android:layout_weight="1" />
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="4"
+            android:padding="3dp"
+
+
+            >
+
+          <TableRow android:padding="1dp" android:background="@drawable/table_row_bg">
+              <TextView  android:id="@+id/tv_kot_total_qty"
+                  android:layout_width="0dp"
+                  android:layout_height="wrap_content"
+                  android:layout_weight="1"
+                  android:textColor="@color/ic_launcher_background"
+                  android:textStyle="bold"
+                  android:textSize="18dp"
+                  android:text="QTY: 100"/>
+
+
+              <TextView android:id="@+id/tv_kot_total_rate"
+                  android:layout_width="0dp"
+                  android:layout_weight="1"
+                  android:layout_height="wrap_content"
+                  android:textColor="@color/ic_launcher_background"
+                  android:layoutDirection="ltr"
+                  android:gravity="end"
+                  android:textStyle="bold"
+                  android:textSize="18dp"
+
+                  android:text="TOT RATE : 10923789"/>
+
+
+          </TableRow>
+
+            <TableRow android:background="@drawable/table_row_bg">
+                <TextView android:id="@+id/tv_kot_total_gst"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="@color/ic_launcher_background"
+                    android:textStyle="bold"
+                    android:textSize="18dp"
+                    android:text="TOT GST: 0.00"/>
+
+
+                <TextView android:id="@+id/tv_kot_total_amount"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+
+                    android:layoutDirection="ltr"
+                    android:gravity="end"
+                    android:textStyle="bold"
+                    android:textSize="18dp"
+                    android:textColor="@color/ic_launcher_background"
+                    android:text="TOTAL : 10923789"/>
+
+            </TableRow>
+            <TableRow >
+                <Button android:layout_height="match_parent"
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:background="@color/colorPrimaryDark"
+                    android:text="KOT" />
+            </TableRow>
+
+        </TableLayout>
+
+
+    </LinearLayout>
+
 
 
 </android.support.constraint.ConstraintLayout>

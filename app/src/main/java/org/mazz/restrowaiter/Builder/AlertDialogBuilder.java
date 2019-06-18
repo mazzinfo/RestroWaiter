@@ -44,9 +44,11 @@ public class AlertDialogBuilder {
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
 
+//        TableEvent.paxCountChanged(context,paxCountEt);
 
 
-        TableEvent.updatePaxOkButtonEvent(context,paxOkButton,tableModal,Integer.parseInt(String.valueOf(paxCountEt.getText())));
+        TableEvent.updatePaxOkButtonEvent(context,paxOkButton,tableModal,paxCountEt,waiterSpinner,alertDialog );
+        TableEvent.paxCancelButtonEvent(context,paxCancelButton,alertDialog);
 
 //finally creating the alert dialog and displaying it
     }}

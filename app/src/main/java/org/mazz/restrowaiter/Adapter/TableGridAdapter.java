@@ -18,13 +18,15 @@ import java.util.ArrayList;
 
 public class TableGridAdapter extends BaseAdapter {
     private Context mContext;
-//    private final String[] string;
-//    private final int[] Imageid;
     ArrayList<TableModal> list;
+
+    LayoutInflater inflater ;
 
     public TableGridAdapter(Context c, ArrayList<TableModal> objects ) {
         mContext = c;
         this.list = objects;
+        inflater = (LayoutInflater) mContext
+                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 //        this.Imageid = Imageid;
 //        this.string = string;
     }
@@ -48,59 +50,52 @@ public class TableGridAdapter extends BaseAdapter {
         return 0;
     }
 
-    @Override
-    public View getView(final int position, View convertView, ViewGroup parent) {
-        View grid;
-        LayoutInflater inflater = (LayoutInflater) mContext
-                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-
+    @Override public View getView(int position, View convertView, ViewGroup parent) {
         if (convertView == null) {
-
-            grid = new View(mContext);
-            grid = inflater.inflate(R.layout.table_grid_view_layout, null);
-            final  TextView person_count = (TextView) grid.findViewById(R.id.tv_person_count);
-            final  TextView time_count = (TextView) grid.findViewById(R.id.tv_time_count);
-
-            final  TextView table_name = (TextView) grid.findViewById(R.id.tv_table_name);
-            final  TextView salesperson_name = (TextView) grid.findViewById(R.id.tv_salesperson_name);
-            final  TextView amount = (TextView) grid.findViewById(R.id.tv_amount);
-
-            TableRow layouHeader = (TableRow)grid.findViewById(R.id.row_header);
-
-            TableRow layoutFooter = (TableRow)grid.findViewById(R.id.row_footer);
-
-
-//            ImageView imageView = (ImageView)grid.findViewById(R.id.img_person_count);
-            final TableModal tableData = list.get(position);
-
-                if(tableData.getTableStatus()==1){
-                layouHeader.setBackgroundColor(mContext.getResources().getColor(R.color.occupied));
-                layoutFooter.setBackgroundColor(mContext.getResources().getColor(R.color.occupied));
-            }if(tableData.getTableStatus()==0){
-                layouHeader.setBackgroundColor(mContext.getResources().getColor(R.color.vacant));
-                layoutFooter.setBackgroundColor(mContext.getResources().getColor(R.color.vacant));
-            }else{
-
-            }
-
-            person_count.setText(""+tableData.getPax());
-            time_count.setText(""+tableData.getSitHour()+":"+tableData.getSitMin());
-            table_name.setText(""+tableData.getTableNo());
-            if(tableData.getWaiterName()!= null && tableData.getWaiterName().length()>0){
-                salesperson_name.setText(""+tableData.getWaiterName());
-            }else{
-                salesperson_name.setText("");
-            }
-
-            amount.setText(NumberUtil.convertCurreny(""+tableData.getTotalAmount(),"INR"));
-
-
-//            textView.setText(string[p]);
-//            imageView.setImageResource(Imageid[p]);
-        } else {
-            grid = (View) convertView;
+            convertView = inflater.inflate(R.layout.table_grid_view_layout, parent, false);
+            convertView.setTag(new ViewHolder(convertView));
         }
 
-        return grid;
+        final ViewHolder holder = (ViewHolder) convertView.getTag();
+
+        final TableModal tableData = list.get(position);
+
+        if(tableData.getTableStatus()==1){
+            holder.layouHeader.setBackgroundColor(mContext.getResources().getColor(R.color.occupied));
+            holder.layoutFooter.setBackgroundColor(mContext.getResources().getColor(R.color.occupied));
+        }if(tableData.getTableStatus()==0) {
+            holder.layouHeader.setBackgroundColor(mContext.getResources().getColor(R.color.vacant));
+            holder.layoutFooter.setBackgroundColor(mContext.getResources().getColor(R.color.vacant));
+        }
+        holder.person_count.setText(""+tableData.getPax());
+        holder.time_count.setText(""+tableData.getSitHour()+":"+tableData.getSitMin());
+        holder.table_name.setText(""+tableData.getTableNo());
+        if(tableData.getWaiterName()!= null && tableData.getWaiterName().length()>0){
+            holder. salesperson_name.setText(""+tableData.getWaiterName());
+        }else{
+            holder.salesperson_name.setText("");
+        }
+
+        holder.amount.setText(NumberUtil.convertCurreny(""+tableData.getTotalAmount(),"INR"));
+
+        return convertView;
+    }
+
+    static class ViewHolder {
+        TextView person_count,time_count,table_name,salesperson_name,amount;
+        TableRow layouHeader,layoutFooter;
+
+        ViewHolder(View root) {
+            person_count = (TextView) root.findViewById(R.id.tv_person_count);
+            time_count = (TextView) root.findViewById(R.id.tv_time_count);
+            table_name = (TextView) root.findViewById(R.id.tv_table_name);
+            salesperson_name = (TextView) root.findViewById(R.id.tv_salesperson_name);
+            amount = (TextView) root.findViewById(R.id.tv_amount);
+
+             layouHeader = (TableRow)root.findViewById(R.id.row_header);
+
+             layoutFooter = (TableRow)root.findViewById(R.id.row_footer);
+
+        }
     }
 }
